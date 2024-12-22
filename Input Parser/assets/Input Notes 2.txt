@@ -1,0 +1,14 @@
+		Holden Tapp's Mouse State Machine Roadmap II
+	Upwards	
+
+1>0 Idle - Immediate
+
+1>0 Idle - Dropped Input Timer Expires
+
+0>1 Down - Immediate
+
+2>1 Up - Immediate
+
+2>1 Up - Dropped Input Timer Expires
+
+2 Down - Rotating

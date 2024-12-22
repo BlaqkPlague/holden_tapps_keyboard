@@ -1,0 +1,25 @@
+Decay Function
+
+// Decay function in C
+expDecay(a, b, decay, dt){
+	return b+(a-b)*exp(-decay*dt);
+}
+
+// Range: 1 to 25.
+decay = 16;
+update(){
+	a = expDecay(a, b, decay, Time.deltaTime);
+}
+
+
+
+
+# Decay function in GD Script
+func expDecay(a, b, decay, dt):
+	return b+(a-b)*MATH.exp(-decay*dt)
+
+# Range: 1 to 25.
+@export var decay = 16
+process(delta):
+	a = expDecay(a, b, decay, delta)
+	pass

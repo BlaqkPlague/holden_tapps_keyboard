@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2rw7mi1gxs2o"]
+
+[ext_resource type="Script" path="res://scripts/input_manager.gd" id="1_hi16i"]
+[ext_resource type="Script" path="res://scripts/h_t_mouse.gd" id="2_w4cxj"]
+[ext_resource type="Texture2D" uid="uid://brtsmny101ph" path="res://icon.svg" id="3_iig5t"]
+[ext_resource type="Script" path="res://scripts/display_current_input.gd" id="4_31dbf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovhni"]
+radius = 40.0
+height = 80.0
+
+[sub_resource type="Theme" id="Theme_y6oqo"]
+default_font_size = 32
+
+[node name="Main" type="Node2D"]
+
+[node name="InputManager" type="Node" parent="."]
+script = ExtResource("1_hi16i")
+
+[node name="HoldenTappsKeyboard" type="Node" parent="InputManager"]
+
+[node name="HoldenTappsMouse" type="Node" parent="InputManager"]
+script = ExtResource("2_w4cxj")
+
+[node name="Mouse" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(576, 324)
+motion_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Mouse"]
+texture = ExtResource("3_iig5t")
+region_enabled = true
+region_rect = Rect2(19, 20, 90, 90)
+region_filter_clip_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse"]
+shape = SubResource("CapsuleShape2D_ovhni")
+
+[node name="Target" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1152, 648)
+motion_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Target"]
+texture = ExtResource("3_iig5t")
+region_enabled = true
+region_rect = Rect2(19, 20, 90, 90)
+region_filter_clip_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
+shape = SubResource("CapsuleShape2D_ovhni")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DisplayCurrentInput" type="PanelContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(120, 50)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
+script = ExtResource("4_31dbf")
+
+[node name="Divider" type="HBoxContainer" parent="CanvasLayer/DisplayCurrentInput"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="LeftArrow" type="Label" parent="CanvasLayer/DisplayCurrentInput/Divider"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = SubResource("Theme_y6oqo")
+text = "."
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="LeftInput" type="Label" parent="CanvasLayer/DisplayCurrentInput/Divider"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = SubResource("Theme_y6oqo")
+text = "."
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="RightInput" type="Label" parent="CanvasLayer/DisplayCurrentInput/Divider"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = SubResource("Theme_y6oqo")
+text = "."
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="RightArrow" type="Label" parent="CanvasLayer/DisplayCurrentInput/Divider"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = SubResource("Theme_y6oqo")
+text = "."
+horizontal_alignment = 1
+vertical_alignment = 2

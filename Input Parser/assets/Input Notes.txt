@@ -1,0 +1,31 @@
+		Holden Tapp's Mouse State Machine Roadmap
+	Downwards
+
+0>0 Idle
+
+0>1 Down - Immediate
+
+0>1 Down - NodeDisplay Timer Expires
+
+1>2 Down - Immediate
+
+1>2 Down - S./D.Tap Timer Expires
+
+2 Down - Rotating
+
+
+
+
+
+
+
+		MVP Roadmap
+
+Read Rotations on 2.Down
+
+Smooth Rotations
+
+Snap Nodes
+
+DoubleDown Click
+

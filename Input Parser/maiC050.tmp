@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2rw7mi1gxs2o"]
+
+[ext_resource type="Script" path="res://scripts/input_manager.gd" id="1_hi16i"]
+[ext_resource type="Script" path="res://scripts/h_t_mouse.gd" id="2_w4cxj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovhni"]
+
+[node name="Main" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_ovhni")
+
+[node name="Input Manager" type="Node" parent="."]
+script = ExtResource("1_hi16i")
+
+[node name="HoldenTappsKeyboard" type="Node" parent="Input Manager"]
+
+[node name="HoldenTappsMouse" type="Node" parent="Input Manager"]
+script = ExtResource("2_w4cxj")
